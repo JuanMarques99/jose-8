@@ -136,7 +136,7 @@ const PasswordGate = ({ onUnlock }: { onUnlock: () => void }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (password.toLowerCase() === "nuestroamor" || password === "8años") {
+    if (password.toLowerCase() === "vuvuzela" || password === "8años") {
       onUnlock()
     } else {
       setError("Contraseña incorrecta. Pista: nuestro sentimiento más fuerte 💕")

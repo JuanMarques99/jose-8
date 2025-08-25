@@ -20,8 +20,8 @@ const MagicalBackground = () => {
           key={`heart-${i}`}
           className="absolute text-pink-300/40"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: window.innerHeight + 50,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== "undefined" ? window.innerHeight + 50 : 800,
             rotate: 0,
             scale: 0.3 + Math.random() * 0.7,
           }}
@@ -29,9 +29,9 @@ const MagicalBackground = () => {
             y: -100,
             rotate: [0, 360, 720],
             x: [
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
-              Math.random() * window.innerWidth,
+              typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+              typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
             ],
           }}
           transition={{
@@ -51,8 +51,8 @@ const MagicalBackground = () => {
           key={`star-${i}`}
           className="absolute text-yellow-300/30"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
             rotate: 0,
             scale: 0.5 + Math.random() * 0.5,
           }}
@@ -78,15 +78,15 @@ const MagicalBackground = () => {
           key={`sparkle-${i}`}
           className="absolute w-2 h-2 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full"
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
             scale: 0,
           }}
           animate={{
             scale: [0, 1, 0],
             opacity: [0, 1, 0],
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
           }}
           transition={{
             duration: 3 + Math.random() * 2,
@@ -108,12 +108,12 @@ const MagicalBackground = () => {
             } 0%, transparent 70%)`,
           }}
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
           }}
           animate={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+            y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
             scale: [1, 1.5, 1],
           }}
           transition={{
@@ -159,8 +159,8 @@ const PasswordGate = ({ onUnlock }: { onUnlock: () => void }) => {
             animate={{
               opacity: [0, 1, 0],
               scale: [0, 1, 0],
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+              y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
             }}
             transition={{
               duration: 4,
@@ -583,12 +583,7 @@ const LoveStoryContent = () => {
                   </motion.p>
                 </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ delay: 2, duration: 1 }}
-                  className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl border border-pink-200 relative overflow-hidden"
-                >
+                <motion.div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl border border-pink-200 relative overflow-hidden">
                   {/* Animated background pattern */}
                   <div className="absolute inset-0 opacity-10">
                     {[...Array(20)].map((_, i) => (
@@ -636,14 +631,14 @@ const LoveStoryContent = () => {
 
                 {/* Call to action */}
                 <motion.div
+                  className="text-center mt-12 md:mt-16"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 3.5 }}
-                  className="mt-12"
+                  transition={{ delay: 1.5 }}
                 >
                   <motion.button
                     onClick={() => setCurrentSection(1)}
-                    className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 text-white px-8 py-4 rounded-full text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-300"
+                    className="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-base md:text-lg font-medium shadow-xl hover:shadow-2xl transition-all duration-300"
                     whileHover={{ scale: 1.05, y: -5 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -678,13 +673,13 @@ const LoveStoryContent = () => {
                     key={i}
                     className="absolute w-3 h-3 bg-gradient-to-r from-pink-300/30 to-purple-300/30 rounded-full"
                     initial={{
-                      x: Math.random() * window.innerWidth,
-                      y: Math.random() * window.innerHeight,
+                      x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+                      y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
                       scale: 0,
                     }}
                     animate={{
-                      x: Math.random() * window.innerWidth,
-                      y: Math.random() * window.innerHeight,
+                      x: typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1200,
+                      y: typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 800,
                       scale: [0, 1, 0],
                       rotate: 360,
                     }}
@@ -764,7 +759,7 @@ const LoveStoryContent = () => {
                   {/* World map background image */}
                   <motion.div className="relative w-full h-[400px] md:h-[700px] rounded-2xl overflow-hidden shadow-inner">
                     <img
-                      src="/public/images/map.jpg" // Updated image source
+                      src="/images/map.jpg"
                       alt="World Map"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -1267,7 +1262,7 @@ const LoveStoryContent = () => {
                         whileHover={{ rotate: 0 }}
                       >
                         <img
-                          src={`/placeholder.svg?height=250&width=250&query=romantic couple memory ${i + 1}`}
+                          src={`/romantic-couple-memory-.png?key=np203&key=jta8z&height=250&width=250&query=romantic couple memory ${i + 1}`}
                           alt={`Recuerdo ${i + 1}`}
                           className="w-full h-32 md:h-40 object-cover rounded-xl"
                         />
